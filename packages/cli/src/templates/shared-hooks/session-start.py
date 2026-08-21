@@ -445,10 +445,16 @@ def _declared_entry_point(trellis_dir: Path, key: str, fallback: str) -> str:
         points = data.get("entryPoints")
         if not isinstance(points, dict) or set(points) - _ENTRY_POINT_KEYS:
             return fallback
+        # All-or-nothing: every declared value must be valid (and free of the
+        # literals the write-time transform replaces), or the whole
+        # declaration is disabled — matching the TS loader.
+        for declared in points.values():
+            if not isinstance(declared, str) or not _ENTRY_POINT_VALUE_RE.fullmatch(declared):
+                return fallback
+            if "/trellis:" in declared or "trellis-update-spec" in declared:
+                return fallback
         value = points.get(key)
-        if not isinstance(value, str) or not _ENTRY_POINT_VALUE_RE.fullmatch(value):
-            return fallback
-        return value
+        return value if isinstance(value, str) else fallback
     except (OSError, ValueError):
         return fallback
 

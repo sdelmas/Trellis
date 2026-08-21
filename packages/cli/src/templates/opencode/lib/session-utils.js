@@ -27,9 +27,15 @@ function declaredEntryPoint(directory, key, fallback) {
     const points = data.entryPoints
     if (points === null || typeof points !== "object" || Array.isArray(points)) return fallback
     if (Object.keys(points).some(k => !ENTRY_POINT_KEYS.has(k))) return fallback
+    // All-or-nothing: every declared value must be valid (and free of the
+    // literals the write-time transform replaces), or the whole declaration
+    // is disabled — matching the TS loader.
+    for (const declared of Object.values(points)) {
+      if (typeof declared !== "string" || !ENTRY_POINT_VALUE_RE.test(declared)) return fallback
+      if (declared.includes("/trellis:") || declared.includes("trellis-update-spec")) return fallback
+    }
     const value = points[key]
-    if (typeof value !== "string" || !ENTRY_POINT_VALUE_RE.test(value)) return fallback
-    return value
+    return typeof value === "string" ? value : fallback
   } catch {
     return fallback
   }
