@@ -32,6 +32,7 @@ from .config import (
     resolve_package,
     validate_package,
 )
+from .entry_points import declared_entry_point
 from .git import (
     INDEX_LOCK_RETRY_ATTEMPTS,
     branch_exists_locally,
@@ -667,7 +668,8 @@ def cmd_create(args: argparse.Namespace) -> int:
             "      list available specs: python3 .trellis/scripts/get_context.py --mode packages",
             file=sys.stderr,
         )
-    print("  - Use /trellis:continue or phase context to decide the next step", file=sys.stderr)
+    continue_entry = declared_entry_point("continue", "/trellis:continue")
+    print(f"  - Use {continue_entry} or phase context to decide the next step", file=sys.stderr)
     print("", file=sys.stderr)
 
     # Output relative path for script chaining

@@ -62,6 +62,11 @@ import {
   isManagedRootDir,
 } from "../configurators/index.js";
 import { replacePythonCommandLiterals } from "../configurators/shared.js";
+import {
+  applyDeclaredEntryPoints,
+  loadDeclaredEntryPoints,
+  setDeclaredEntryPoints,
+} from "../utils/entry-points.js";
 import { preserveCodexAgentModelKeys } from "../configurators/codex.js";
 import { printZcodeSetupHint } from "../configurators/zcode.js";
 import { ensureGitattributes } from "../configurators/workflow.js";
@@ -950,7 +955,10 @@ async function collectTemplateFiles(
 
   // Apply python3→python replacement for Windows consistency with init-time writes
   for (const [filePath, content] of files) {
-    files.set(filePath, replacePythonCommandLiterals(content));
+    files.set(
+      filePath,
+      applyDeclaredEntryPoints(replacePythonCommandLiterals(content)),
+    );
   }
 
   return files;
@@ -2176,6 +2184,9 @@ export function renameTracesToJournal(workspaceDir: string): {
  */
 export async function update(options: UpdateOptions): Promise<void> {
   const cwd = process.cwd();
+  // Consult a wrapper pack's declared entry points for every template write
+  // in this run; absent or invalid declarations fall back to Trellis literals.
+  setDeclaredEntryPoints(loadDeclaredEntryPoints(cwd));
 
   // Check if Trellis is initialized
   if (!fs.existsSync(path.join(cwd, DIR_NAMES.WORKFLOW))) {
