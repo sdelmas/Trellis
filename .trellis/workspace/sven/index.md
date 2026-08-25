@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 5
+- **Total Sessions**: 6
 - **Last Active**: 2026-08-25
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~160 | Active |
+| `journal-1.md` | ~186 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 6 | 2026-08-25 | Resplit upstream PR #534 into five PRs | `4e791910`, `0344d52b`, `029b0cb5`, `3f40ffd0` | `main` |
 | 5 | 2026-08-25 | Retire the platypeeps Trellis mirror onto the sdelmas fork | `8c01f196`, `7f8fe7e6` | `main` |
 | 4 | 2026-08-09 | PR 534 review convergence | - | `chore/task-backlog-2026-08` |
 | 3 | 2026-08-09 | Backlog batch: validation preflight, add_session state machine, OpenCode mem reader | `adb7acfb` | `chore/task-backlog-2026-08` |

@@ -158,3 +158,29 @@ Repointed ai/Trellis's fork remote from the platypeeps/Trellis mirror to sdelmas
 ### Status
 
 [OK] **Completed**
+
+
+## Session 6: Resplit upstream PR #534 into five PRs
+<!-- trellis-session: v=2 fp=f819f07e78dadf6b -->
+
+**Date**: 2026-08-25
+**Task**: Resplit upstream PR #534 into five PRs
+**Package**: cli
+**Branch**: `main`
+
+### Summary
+
+Closed mindfold-ai/Trellis#534 and reopened it as five scoped PRs per the maintainer's spec: #574 OpenCode mem reader, #575 update receipt repair, #576 runtime hardening, #577 add_session state machine, #578 task lifecycle (stacked on #576, since 00ae5af4 needs six helpers that land in C). Slice E's workflow.md hunks were deferred to mindfold-ai/marketplace#17 because the pinned marketplace commit 7310a50c is an orphan off d286b2c and not an ancestor of marketplace main, so the mirror assertion cannot be satisfied by a pointer bump. All slices build and test green.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `4e791910` | feat(mem): restore the OpenCode session reader without a native dependency |
+| `0344d52b` | fix(update): repair receipt entries for files already identical to a template |
+| `029b0cb5` | feat(scripts): make add_session a resumable state machine |
+| `3f40ffd0` | feat(scripts): align task context validation with PR preflight |
+
+### Status
+
+[OK] **Completed**
