@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 4
-- **Last Active**: 2026-08-09
+- **Total Sessions**: 5
+- **Last Active**: 2026-08-25
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~133 | Active |
+| `journal-1.md` | ~160 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 5 | 2026-08-25 | Retire the platypeeps Trellis mirror onto the sdelmas fork | `8c01f196`, `7f8fe7e6` | `main` |
 | 4 | 2026-08-09 | PR 534 review convergence | - | `chore/task-backlog-2026-08` |
 | 3 | 2026-08-09 | Backlog batch: validation preflight, add_session state machine, OpenCode mem reader | `adb7acfb` | `chore/task-backlog-2026-08` |
 | 2 | 2026-08-09 | Backlog sweep: verified upstream-covered tasks, landed three CLI hardening features | `e1a17984`, `a95e7483`, `f8d5de5f` | `chore/task-backlog-2026-08` |

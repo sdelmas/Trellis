@@ -134,3 +134,27 @@ finding against the code, fixed the confirmed ones, rebutted the rest.
 ### Next Steps
 
 - Plan and implement hook-timeout process-tree kill task
+
+
+## Session 5: Retire the platypeeps Trellis mirror onto the sdelmas fork
+<!-- trellis-session: v=2 fp=980d83a07f66af9d -->
+
+**Date**: 2026-08-25
+**Task**: Retire the platypeeps Trellis mirror onto the sdelmas fork
+**Package**: cli
+**Branch**: `main`
+
+### Summary
+
+Repointed ai/Trellis's fork remote from the platypeeps/Trellis mirror to sdelmas/Trellis, the real fork of mindfold-ai/Trellis. The mirror held nothing unique except the dependabot undici 6.23.0->6.28.0 branch, carried over and merged as #7 (5042dd9f); every other branch SHA already matched and sdelmas carried 132 tags to the mirror's zero. Archived platypeeps/Trellis read-only. origin push stays DISABLED, so nothing reaches mindfold-ai. marketplace submodule already pointed at sdelmas/marketplace.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `8c01f196` | chore(task): record the platypeeps mirror retirement |
+| `7f8fe7e6` | chore(task): record the merged undici bump instead of an open PR |
+
+### Status
+
+[OK] **Completed**
