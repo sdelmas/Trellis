@@ -29,8 +29,8 @@ The mirror held exactly one thing the fork did not: branch
 - `git remote -v` in `ai/Trellis` shows `fork` = `sdelmas/Trellis`, no `platypeeps` remote,
   `origin` push DISABLED.
 - `git rev-parse HEAD fork/main` reports the same SHA.
-- `sdelmas/Trellis` has branch `dependabot/npm_and_yarn/undici-6.28.0` at the mirror's SHA
-  `d782b34e`, with an open PR into `sdelmas:main`.
+- The mirror's dependabot bump (`d782b34e`) has landed on `sdelmas:main` as PR #7, squash-merged
+  at `5042dd9f`; the carried-over head branch is deleted once merged.
 - `gh api repos/platypeeps/Trellis --jq .archived` returns `true`.
 - No live config under `~/repos` or `~/.claude` references `platypeeps/Trellis`
   (archived task docs and session transcripts excluded).
@@ -40,6 +40,7 @@ The mirror held exactly one thing the fork did not: branch
 ```bash
 git remote -v
 git rev-parse HEAD fork/main
-gh api repos/sdelmas/Trellis/branches/dependabot/npm_and_yarn/undici-6.28.0 --jq .commit.sha
+gh api repos/sdelmas/Trellis/pulls/7 --jq '{merged,merge_commit_sha}'
+gh api repos/sdelmas/Trellis/contents/packages/cli/package.json --jq '.content' | base64 -d | grep undici
 gh api repos/platypeeps/Trellis --jq .archived
 ```
