@@ -1,0 +1,32 @@
+{
+  "id": "resplit-pr534",
+  "name": "resplit-pr534",
+  "title": "Resplit upstream PR #534 into five reviewable slices",
+  "description": "Close mindfold-ai/Trellis#534 and land its content as five scope-clean PRs (A-E) against current upstream main",
+  "status": "completed",
+  "dev_type": null,
+  "scope": null,
+  "package": "cli",
+  "priority": "P1",
+  "creator": "sven",
+  "assignee": "sven",
+  "createdAt": "2026-08-25",
+  "completedAt": "2026-08-25",
+  "branch": null,
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [
+    "08-25-pr534-a-opencode-mem",
+    "08-25-pr534-b-receipt-repair",
+    "08-25-pr534-c-runtime-hardening",
+    "08-25-pr534-d-add-session",
+    "08-25-pr534-e-lifecycle"
+  ],
+  "parent": null,
+  "relatedFiles": [],
+  "notes": "",
+  "meta": {}
+}
